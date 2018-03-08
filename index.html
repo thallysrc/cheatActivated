@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>gtasa</title>
+<style>
+
+.cheat {
+  background:rgba(0,0,0,0.62);
+  width:300px;
+  color: #fff;
+  font-weight: bolder;
+  font-family: 'Source Sans Pro';
+  font-size: 28px;
+  padding: 2px 0;
+  position: absolute;
+  padding: 3px 10px;
+  right: 50px;
+  top: 25px;
+  display:none;
+}
+        .show {
+          display: block;
+        }
+
+</style>
+  </head>
+  <body>
+    <div id="cheat" class="cheat">Cheat activated</div>
+
+
+     <script type="text/javascript">
+       var cheats = [
+        'LXGIWYL',
+        'KJKSZPJ',
+        'UZUMYMW',
+        'HESOYAM',
+        'OSRBLHH',
+        'ASNAEB',
+        'AFZLLQLL',
+        'ICIKPYH',
+        'AUIFRVQS',
+        'CFVFGMJ',
+        'YSOHNUL',
+        'PPGWJHT',
+        'LIYOAAY',
+        'AJLOJYQY',
+        'BAGOWPG',
+        'FOOOXFT',
+        'CPKTNWT',
+        'XICWMD',
+        'PGGOMOY',
+        'SZCMAWO',
+        'ZEIIVG',
+        'YLTEICZ',
+        'AFSNMSMW',
+        'BTCDBCB',
+        'JYSDSOD',
+        'KVGYZQK',
+        'BGLUAWML',
+        'CIKGCGX',
+        'MROEMZH',
+        'MROEMZH',
+        'AFPHULTL',
+        'BGKGTJH',
+        'GUSNHDE',
+        'RIPAZHA',
+        'KGGGDKP',
+        'COXEFGU',
+        'BSXSGGC',
+        'XJVSNAJ',
+        'OFVIAC',
+        'MGHXYRM',
+        'CWJXUOC',
+        'LFGMHAL',
+        'BAGUVIX',
+        'CVWKXAM',
+        'AIYPWZQP',
+        'YECGAA',
+        'AEZAKMI',
+        'LJSPQK',
+        'IAVENJQ',
+        'AEDUWNV',
+        'PRIEBJ',
+        'MUNASEF',
+        'WANRLTW',
+        'THGLOJ',
+        'SJMAHPE',
+        'OGXSDAG',
+        'EHIBXQS'
+        ];
+       var cheat = '';
+        var sound = new Audio('gtasa.mp3'); 
+        function showCheat() {
+          sound.play();
+          setTimeout(function() {
+          document.getElementById('cheat').classList.add('show');
+          }, 500);
+
+          setTimeout(function() {
+            document.getElementById('cheat').classList.remove('show');
+          }, 3000);
+        }
+
+        function myKeyPress(e){
+          var keynum;
+
+          if(window.event) {
+            keynum = e.keyCode;
+          } else if(e.which){
+            keynum = e.which;
+          }
+
+          if(cheat.length > 8) {
+            cheat = '';
+          }
+
+          cheat += String.fromCharCode(keynum);
+
+          var exist = cheats.find(function(cheatInCheats) {
+            if(cheatInCheats === cheat) {
+              showCheat();
+              cheat = ''
+            }
+          });
+        }
+
+        document.onkeydown = myKeyPress
+      </script>
+
+  </body>
+</html>
