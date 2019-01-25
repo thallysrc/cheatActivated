@@ -82,7 +82,7 @@
         ];
 
          var cheat = '';
-        var sound = new Audio('gtasa.mp3'); 
+        var sound = new Audio('gtasa.mp3');
         function showCheat() {
           sound.play();
           setTimeout(function() {
@@ -95,7 +95,12 @@
         }
 
         function myKeyPress(e){
-          var keynum;
+          var keynum, letterPress;
+
+          // Caso fique 2 segundos sem digitar, os caracteres digitados expiram (tendo que digitar tudo novamente);
+          if (timeoutCheat >= 2) {
+            cheat = '';
+          }
 
           if(window.event) {
             keynum = e.keyCode;
@@ -107,7 +112,13 @@
             cheat = '';
           }
 
-          cheat += String.fromCharCode(keynum);
+          letterPress = String.fromCharCode(keynum);
+
+          // Apenas teclas com caracteres são considerados (não mais ctrl/shift/etc);
+          if (!/[a-zA-Z]/.test(letterPress))
+            return false;
+
+          cheat += letterPress;
 
           var exist = cheats.find(function(cheatInCheats) {
             var res = cheatInCheats.search(cheat);
@@ -116,9 +127,16 @@
               cheat = '';
             }
           });
+
+          timeoutCheat = 0;
         }
 
         document.onkeydown = myKeyPress
+
+        var timeoutCheat = 0;
+        setInterval( function(){
+            timeoutCheat += 1;
+        }, 1000);
       </script>
 
   </body>
