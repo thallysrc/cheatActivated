@@ -52,7 +52,7 @@ let cheat = {
 
     validate: function(keyLetter)
     {
-        var self = this
+        let self = this
 
         // Expira teclas digitadas
         if (timeoutCheat >= 2)
@@ -76,7 +76,6 @@ let cheat = {
             keyLetter,
             res
 
-
         if (window.event)
             keyNum = e.keyCode
         else if (e.which)
@@ -88,8 +87,6 @@ let cheat = {
             return false
 
         cheat.setOutput(keyLetter)
-
-        console.log(cheat.getOutput())
 
         arrCheats.find(function(cheatInCheats)
         {
