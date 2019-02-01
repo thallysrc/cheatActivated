@@ -1,143 +1,20 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>gtasa</title>
-<style>
+    <head>
+        <title>GTA - San Andreas</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/default.css">
+    </head>
+    <body>
 
-.cheat {
-  background:rgba(0,0,0,0.62);
-  width:300px;
-  position: absolute;
-  right: 50px;
-  top: 25px;
-  display:none;
-}
-        .show {
-          display: block;
-        }
+        <div id="popup-cheat">
+            Cheat activated
+        </div>
 
-</style>
-  </head>
-  <body>
-    <img id="cheat" src="./cheatactivated.png" class="cheat" />
-
-     <script type="text/javascript">
-       var cheats = [
-        'LXGIWYL',
-        'KJKSZPJ',
-        'UZUMYMW',
-        'HESOYAM',
-        'OSRBLHH',
-        'ASNAEB',
-        'AFZLLQLL',
-        'ICIKPYH',
-        'AUIFRVQS',
-        'CFVFGMJ',
-        'YSOHNUL',
-        'PPGWJHT',
-        'LIYOAAY',
-        'AJLOJYQY',
-        'BAGOWPG',
-        'FOOOXFT',
-        'CPKTNWT',
-        'XICWMD',
-        'PGGOMOY',
-        'SZCMAWO',
-        'ZEIIVG',
-        'YLTEICZ',
-        'AFSNMSMW',
-        'BTCDBCB',
-        'JYSDSOD',
-        'KVGYZQK',
-        'BGLUAWML',
-        'CIKGCGX',
-        'MROEMZH',
-        'MROEMZH',
-        'AFPHULTL',
-        'BGKGTJH',
-        'GUSNHDE',
-        'RIPAZHA',
-        'KGGGDKP',
-        'COXEFGU',
-        'BSXSGGC',
-        'XJVSNAJ',
-        'OFVIAC',
-        'MGHXYRM',
-        'CWJXUOC',
-        'LFGMHAL',
-        'BAGUVIX',
-        'CVWKXAM',
-        'AIYPWZQP',
-        'YECGAA',
-        'AEZAKMI',
-        'LJSPQK',
-        'IAVENJQ',
-        'AEDUWNV',
-        'PRIEBJ',
-        'MUNASEF',
-        'WANRLTW',
-        'THGLOJ',
-        'SJMAHPE',
-        'OGXSDAG',
-        'EHIBXQS'
-        ];
-
-         var cheat = '';
-        var sound = new Audio('gtasa.mp3');
-        function showCheat() {
-          sound.play();
-          setTimeout(function() {
-          document.getElementById('cheat').classList.add('show');
-          }, 500);
-
-          setTimeout(function() {
-            document.getElementById('cheat').classList.remove('show');
-          }, 3000);
-        }
-
-        function myKeyPress(e){
-          var keynum, letterPress;
-
-          // Caso fique 2 segundos sem digitar, os caracteres digitados expiram (tendo que digitar tudo novamente);
-          if (timeoutCheat >= 2) {
-            cheat = '';
-          }
-
-          if(window.event) {
-            keynum = e.keyCode;
-          } else if(e.which){
-            keynum = e.which;
-          }
-
-          if(cheat.length > 8) {
-            cheat = '';
-          }
-
-          letterPress = String.fromCharCode(keynum);
-
-          // Apenas teclas com caracteres são considerados (não mais ctrl/shift/etc);
-          if (!/[a-zA-Z]/.test(letterPress))
-            return false;
-
-          cheat += letterPress;
-
-          var exist = cheats.find(function(cheatInCheats) {
-            var res = cheatInCheats.search(cheat);
-            if(cheatInCheats === cheat) {
-              showCheat();
-              cheat = '';
-            }
-          });
-
-          timeoutCheat = 0;
-        }
-
-        document.onkeydown = myKeyPress
-
-        var timeoutCheat = 0;
-        setInterval( function(){
-            timeoutCheat += 1;
-        }, 1000);
-      </script>
-
-  </body>
+        <script type="text/javascript" src="assets/js/cheats.js"></script>
+        <script type="text/javascript" src="assets/js/default.js"></script>
+        <script type="text/javascript">
+            cheat.init()
+        </script>
+    </body>
 </html>

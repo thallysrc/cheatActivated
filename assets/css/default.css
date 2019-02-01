@@ -1,0 +1,13 @@
+#popup-cheat {
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    padding: 6px 20px;
+    letter-spacing: 1px;
+    float: left;
+    font-family: 'gta-sa-cheat';
+    color: rgba(255,255,255,0.6);
+    font-size: 30px;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+}

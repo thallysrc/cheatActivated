@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'gta-sa-cheat';
+    src: url('../fonts/webfont-cheat.woff2') format('woff2'),
+        url('../fonts/webfont-cheat.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
